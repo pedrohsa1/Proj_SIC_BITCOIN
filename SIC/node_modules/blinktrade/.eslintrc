@@ -1,0 +1,40 @@
+{
+  "env": {
+    "mocha": true
+  },
+  "extends": ["airbnb-base", "plugin:flowtype/recommended"],
+  "parser": "babel-eslint",
+  "rules": {
+    "flowtype/space-after-type-colon": 0,
+    "flowtype/semi": [2, "always"],
+    "flowtype/object-type-delimiter": [2, "comma"],
+    "import/prefer-default-export": 0,
+    "max-len": 0,
+    "global-require": 0,
+    "arrow-body-style": 0,
+    "arrow-parens": 0,
+    "consistent-return": 0,
+    "no-bitwise": 0,
+    "no-nested-ternary": 0,
+    "no-multi-spaces": 0,
+    "no-unused-expressions": 0,
+    "no-case-declarations": 0,
+    "newline-per-chained-call": 0,
+    "class-methods-use-this": 0,
+    "import/no-extraneous-dependencies": [2, { devDependencies: true }],
+    "no-unused-vars": [2, {"varsIgnorePattern": "Columns|VerificationData" }],
+    "new-cap": [2, { "newIsCapExceptions": [ "hmac" ] }],
+    "object-curly-newline": 0
+  },
+  "globals": {
+    "BlinkTradeBase": true,
+    "BlinkTradeRest": true,
+    "BlinkTradeWS":  true,
+    "BlinkTradeEnv": true,
+    "Stun": true,
+    "Request": true,
+    "Listener": true,
+    "window": true
+  },
+  "plugins": ["flowtype"]
+}

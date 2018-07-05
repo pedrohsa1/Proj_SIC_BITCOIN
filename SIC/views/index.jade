@@ -1,0 +1,76 @@
+extends templates/default
+
+block content
+    // Header
+    header
+      .container
+        .intro-text
+          //.intro-lead-in Welcome To Our Studio!
+          //.intro-heading It's Nice To Meet You
+          a.page-scroll.btn.btn-xl(href='/dicas') Seja um Investidor
+    // Services Section
+    section#services
+      .container
+        .row
+          .col-lg-12.text-center
+            h2.section-heading Ferramentas do Investidor
+            h3.section-subheading.text-muted Lorem ipsum dolor sit amet consectetur.
+        .row.text-center
+          .col-md-4
+            span.fa-stack.fa-4x
+              i.fa.fa-circle.fa-stack-2x.text-primary
+              i.i.fa.fa-bar-chart.fa-stack-1x.fa-inverse
+            h4.service-heading Análise das Cotações
+            p.text-muted
+              | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.
+          .col-md-4
+            span.fa-stack.fa-4x
+              i.fa.fa-circle.fa-stack-2x.text-primary
+              i.fa.fa-laptop.fa-stack-1x.fa-inverse
+            h4.service-heading Consultoria
+            p.text-muted
+              | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.
+          .col-md-4
+            span.fa-stack.fa-4x
+              i.fa.fa-circle.fa-stack-2x.text-primary
+              i.fa.fa-lock.fa-stack-1x.fa-inverse
+            h4.service-heading Investimento Seguro
+            p.text-muted
+              | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.
+    // --------------------------------- Team Section---------------------------------------------
+    section#team.bg-light-gray
+      .container
+        .row
+          .col-lg-12.text-center
+            h2.section-heading Our Amazing Team
+            h3.section-subheading.text-muted Lorem ipsum dolor sit amet consectetur.
+        .row
+          .col-sm-4
+          .col-sm-4
+          .col-sm-4
+        .row
+          .col-lg-8.col-lg-offset-2.text-center
+            p.large.text-muted
+              | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque, laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde.
+    footer
+      .container
+        .row
+          .col-md-4
+            span.copyright Copyright © Your Website 2018
+          .col-md-4
+            ul.list-inline.social-buttons
+              li
+                a(href='#')
+                  i.fa.fa-twitter
+              li
+                a(href='#')
+                  i.fa.fa-facebook
+              li
+                a(href='#')
+                  i.fa.fa-linkedin
+          .col-md-4
+            ul.list-inline.quicklinks
+              li
+                a(href='#') Privacy Policy
+              li
+                a(href='#') Terms of Use

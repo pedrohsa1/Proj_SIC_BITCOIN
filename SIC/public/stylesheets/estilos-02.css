@@ -1,0 +1,245 @@
+*{
+  margin:0px;
+  padding:0px;
+}
+body{
+  background-color: #FAFAFA;
+}
+.juntar-tabela{
+  padding-right: 0px !important;
+  padding-left: 0px !important;
+}
+.tabela-orderbook{
+   font-size: 12px !important;
+}
+.tabela-ranking-geral{
+   font-size: 11px !important;
+}
+
+hr{
+  border: 1px solid #eee;
+}
+
+.tabelaLinkExchange{
+  color: #333;
+}
+
+.navbar-brand:focus, .navbar-brand:hover {
+    text-decoration: none;
+}
+
+
+.container{
+  padding-right: 0px !important;
+  padding-left: 0px !important;
+  /*margin-right: auto !important;
+  margin-left: auto !important; */
+}
+
+.texto-exchange-selecionado{
+  /*color: #ccc;*/
+  text-decoration: line-through;
+  /*color: #990000;*/
+  color: #ccc;
+}
+
+.valor-exchange-selecionado{
+  /*color: #990000;*/
+  color: #ccc;
+}
+
+.seleciona-exchange-comprar:hover{
+  /*border: 2px solid #FFEC8B;*/
+  border: 2px solid #228B22 !important;
+}
+.seleciona-exchange-vender:hover{
+  /*border: 2px solid #FFEC8B;*/
+  border: 2px solid red !important;
+}
+.borda-selecionada{
+  border: 2px solid #228B22;
+}
+
+
+@import url('http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css');
+.navbar-toggle {
+     margin-left: 0px;
+    border-color: transparent;
+    padding: 2px;
+    border: 1px none transparent;
+}
+.nav-toggle-left {
+    float: left;
+    margin-left: 15px;
+}
+
+.custab{
+  background-color:  #fff;
+    border: 1px solid #ccc;
+    padding: 5px;
+    margin: 5% 0;
+    /*box-shadow: 3px 3px 2px #ccc;*/
+    transition: 0.5s;
+    }
+.custab:hover{
+    /*box-shadow: 3px 3px 0px transparent;*/
+    transition: 0.5s;
+    }
+
+.update-nag > .update-split{
+  background: #337ab7;
+  width: 33px;
+  float: left;
+  color: #fff!important;
+  height: 100%;
+  text-align: center;
+}
+
+.update-nag{
+  display: inline-block;
+  font-size: 14px;
+  text-align: left;
+  background-color: #fff;
+  height: 40px;
+  -webkit-box-shadow: 0 1px 1px 0 rgba(0,0,0,.2);
+  box-shadow: 0 1px 1px 0 rgba(0,0,0,.1);
+  margin-bottom: 10px;
+}
+
+.update-nag:hover{
+    cursor: pointer;
+    -webkit-box-shadow: 0 1px 1px 0 rgba(0,0,0,.4);
+  box-shadow: 0 1px 1px 0 rgba(0,0,0,.3);
+}
+
+.update-nag > .update-split{
+  background: #337ab7;
+  width: 33px;
+  float: left;
+  color: #fff!important;
+  height: 100%;
+  text-align: center;
+}
+
+.update-nag > .update-split > .glyphicon{
+  position:relative;
+  top: calc(50% - 9px)!important; /* 50% - 3/4 of icon height */
+}
+.update-nag > .update-split.update-success{
+  background: #5cb85c!important;
+}
+
+.update-nag > .update-split.update-danger{
+  background: #d9534f!important;
+}
+
+.update-nag > .update-split.update-info{
+  background: #5bc0de!important;
+}
+
+.update-nag > .update-text{
+  line-height: 19px;
+  padding-top: 11px;
+  padding-left: 45px;
+  padding-right: 20px;
+}
+
+/*black table*/
+.table>thead>tr>th{border-bottom: none;}
+.exotic-table{
+    color:#fff;
+    background: #191919;
+    text-align: center;
+    border: none;
+}
+.exotic-table thead tr{
+    border: 2px #333 outset;
+    text-align: center;
+}
+.exotic-table thead>tr>th{
+    text-align: center;
+}
+.exotic-table tbody{
+    border:2px outset #333;
+    border-top:none
+}
+
+.exotic-table tbody tr{
+    background: #222;
+}
+.exotic-table tbody tr:hover{
+    box-shadow:0 0 20px #000;
+    background:#1a1a1a;
+}
+.exotic-table tbody tr td{
+    border-bottom:2px outset #333;
+}
+.table-responsive{
+    border:none;
+}
+.popover {
+     color:#000
+  }
+a.td-price{
+    color:#fff;
+    border-bottom:1px dotted #ccc
+}
+
+.green{color:#47e900}
+.red{color:#f00808}
+.paleyellow{color:#f8d97c}
+.purple{color:#b461ff}
+.turquoise{color:#52edff}
+
+
+.cor-botao-logout{
+  margin-top:10px;
+  color:#fff !important;
+  padding-top: 5px !important;
+  padding-bottom: 5px !important;
+}
+.cor-botao-logout: hover{
+  color:#fff !important;
+  padding-top: 5px !important;
+  padding-bottom: 5px !important;
+}
+
+
+
+/*Comentário nas celulas da tabela*/
+.CellWithComment{
+  position:relative;
+}
+
+.CellComment{
+  display:none;
+  position:absolute; 
+  z-index:100;
+  border:1px;
+  background-color:black;
+  border-style:solid;
+  border-width:1px;
+  border-radius: 4px;
+  border-color:#fff;
+  padding:3px;
+  color:#fff; 
+  top:20px; 
+  left:20px;
+}
+
+.CellWithComment:hover span.CellComment{
+  display:block;
+}
+
+.step{
+    /*margin-right: 40px;*/
+    padding:10px;
+    font-size: 16px;
+    line-height: 25px;
+    color: #545454;
+    list-style: none;
+  }
+
+.whb{
+  font-size: 2em;
+}

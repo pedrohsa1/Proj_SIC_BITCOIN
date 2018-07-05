@@ -1,0 +1,36 @@
+extends templates/default
+
+block content
+    .container-fluid.custab(style="margin-right:2em; margin-left:2em; margin-top: 7em; background-color:#fff; padding:3em;")
+      .row
+        .col-md-12
+          div(class=['ui', 'container', 'grid', 'stackable'])
+            div(class=['ten', 'wide', 'column'])
+
+              h2(class['ui','header', 'blue', 'dividing'])= 'Modificar Investidor'
+
+              div(class='form-novoproduto')
+              	form(class=['ui', 'form'] action='/novoInvestidor' method='post')
+              		div(class=['ui', 'field'])
+              			label(form='nome')= 'Nome do Investidor'
+              			input(type= 'text', name='nome' placeholder='nome')
+              		div(class['ui', 'two', 'fields'])
+              			div(class=['ui', 'fields'])
+              				label(for='nome')= "Endereco"
+              				input(type='text' name='endereco' placeholder='Endereco')
+              			div(class=['ui', 'fields'])
+              				label(for='nome')= "Telefone"
+              				input(type='text' name='telefone' placeholder='Telefone')
+              		div(class['ui', 'two', 'fields'])
+              			div(class=['ui', 'fields'])
+              				label(for='qtd_bitcoin')= "Qtd. Bitcoin"
+              				input(type='hidden' name='qtd_bitcoin' placeholder='Qtd Bitcoin
+              				')
+              			div(class=['ui', 'fields'])
+              				label(for='exchange_invest')= "Exchange Investimento"
+              				input(type='text' name='exchange_invest' placeholder='Exchange')
+              				input(type='text' name='id' placeholder='Exchange')
+              		button(class=['ui', 'button','basic','black'])= 'Inserir Investidor'
+              		div(class=['ui', 'message', 'error'])
+
+          script(src='/javascripts/validacion.js')

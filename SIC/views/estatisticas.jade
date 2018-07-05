@@ -1,0 +1,158 @@
+extends templates/default
+
+block content
+  body(ng-app='bitcoinAnalise', ng-controller='bitcoinAnaliseController', style="margin-top:7em;")
+      .container(style="font-size: 17px!important;")
+        .row(style='margin-top: 25px 0px 0px 0px !important;')
+          .col-md-5(style='padding:0px;')
+            table#main-table.table.exotic-table.tabela-ranking-geral(style="font-size:14px !important;")
+              thead
+                tr.text-center
+                  th(colspan='5') Ranking Geral
+              tbody.text-center
+                tr
+                  td(style='width: 5px; background-color: #228B22;')
+                    i.glyphicon.glyphicon-shopping-cart
+                  td
+                    strong {{exchangeMenorOfertaDeVenda.exchange}}
+                  td.text-right(style='color:#00FF00') 
+                    strong {{exchangeMenorOfertaDeVenda.menorVendaValor | currency}}
+                  td.text-right(style='color:#00FF00') 
+                    strong {{exchangeMenorOfertaDeVenda.menorVendaValorUSD | currency: "$ "}}
+                  td.text-right ฿ {{exchangeMenorOfertaDeVenda.menorVendaBTC}}
+                tr
+                  td(style='width: 5px; background-color: #990000;')
+                    i.glyphicon.glyphicon-bullhorn
+                  td
+                    strong {{exchangeMaiorOfertaDeCompra.exchange}}
+                  td.text-right(style='color:red') 
+                    strong {{exchangeMaiorOfertaDeCompra.maiorCompraValor | currency}}
+                  td.text-right(style='color:red') 
+                    strong {{exchangeMaiorOfertaDeCompra.maiorCompraValorUSD| currency: "$ "}}
+                  td.text-right  ฿ {{exchangeMaiorOfertaDeCompra.maiorCompraBTC}}
+                tr
+                  td.text-left(colspan='2')
+                    strong Rendimento
+                  td.text-right
+                    | {{diferencaCompraEVenda | currency}}
+                  td.text-right
+                    | {{diferencaCompraEVenda * 0.3037667 | currency: "$ "}}
+                  td.text-right
+                    span.glyphicon.glyphicon-arrow-up 
+                    |  {{percentualCompraEVenda | number: 2}} %
+                tr
+                  td.text-left(colspan='3')
+                    strong Média Compra:
+                    |  {{mediaMelhoresOfertaDeCVenda  * 0.3037667| currency: "$ "}}
+                  td.text-left(colspan='2')
+                    strong Média Venda:
+                    |  {{mediaMelhoresOfertaDeCompra * 0.3037667| currency: "$ "}}
+          .col-md-7(style='')
+            #columnchart_values
+        .row
+          .col-md-12
+          | teste
+        .row
+          .col-md-12
+            .alert.alert-warning.alert-dismissable.text-left(style='margin-bottom:0px !important; font-size:18px !important', ng-if='!valorVendaMaiorValorCompra')
+              button.close(type='button', data-dismiss='alert', aria-hidden='true') ×
+              | No momento não é viável comprar e vender em Exchanges diferentes.
+            .alert.alert-info.alert-dismissable.text-left(style='margin-bottom:0px !important; font-size:18px !important', ng-if='valorVendaMaiorValorCompra')
+              button.close(type='button', data-dismiss='alert', aria-hidden='true') ×
+              | Melhor negócio: Comprar na {{msgMelhorNegocio.comprar}} e vender na {{msgMelhorNegocio.vender}}, com {{msgMelhorNegocio.diferenca | currency}} de margem, podendo obter lucros de {{msgMelhorNegocio.porcentagem}}%.
+        .row(style='margin-bottom: 50px !important; ')
+          .col-md-6.juntar-tabela
+            //{{checkedAtivadoOfertaVenda}}
+            table.table.table-striped.custab.tabela-orderbook(style="font-size: 15px!important;")
+              thead
+                tr
+                  th(colspan='6', style='text-align:center; background-color:#228B22; color:#fff;')
+                    | Comprar
+                    // Menores Ofertas de Venda
+                tr
+                  th(colspan='6', style='text-align:center; padding: 0px; background-color: #FFEC8B; ')
+                    | Lista das Melhores Ofertas de Venda por Exchange
+                    // Menores Ofertas de Venda
+                tr
+                  th.text-center Desativar
+                  th.text-center País
+                  th.text-center Exchange
+                  th.text-center BTC 
+                  th.text-center BRL 
+                  th.text-center USD 
+              tbody
+                tr.text-center(ng-repeat='(key, value) in ordemExchangesVenda', ng-click='selectExchangeVenda(value)' ng-class="{'seleciona-exchange-comprar': ! checkedAtivadoOfertaVenda[value.codVenda]}" style="cursor: crosshair;")
+                  td(style="padding: 0px;")
+                    input(type='checkbox', name='{{value.codVenda}}', id="{{value.codVenda}}", ng-model='checkedAtivadoOfertaVenda[value.codVenda]')
+                  td.CellWithComment(ng-class="{'valor-exchange-selecionado': checkedAtivadoOfertaVenda[value.codVenda]}") {{value.siglaPais}}
+                    span.CellComment {{value.pais}}
+                  td
+                    a.tabelaLinkExchange(href='{{value.linkExchange}}', target='_blank', ng-class="{'texto-exchange-selecionado': checkedAtivadoOfertaVenda[value.codVenda]}")
+                      | {{value.exchange}} 
+                    span.glyphicon.glyphicon-shopping-cart(style='color:#008B00', aria-hidden='true', ng-if='value.iconRanking')
+                  td.text-right(ng-class="{'valor-exchange-selecionado': checkedAtivadoOfertaVenda[value.codVenda]}") ฿ {{value.menorVendaBTC}}
+                  td.text-right(ng-class="{'valor-exchange-selecionado': checkedAtivadoOfertaVenda[value.codVenda]}") {{value.menorVendaValor | currency}}
+                  td.text-right(data-ng-attr-id="{{value.codCompra}}", ng-class="{'valor-exchange-selecionado': checkedAtivadoOfertaVenda[value.codVenda]}") {{value.menorVendaValorUSD | currency: "$"}}
+          .col-md-6.juntar-tabela
+
+            table.table.table-striped.custab.tabela-orderbook(style="font-size: 15px!important;")
+              thead
+                tr(style=' background-color:#990000; color:#fff;')
+                  th(height='10', colspan='6', style='text-align:center;')
+                    | Vender
+                    // Maiores Ofertas de Compra
+                tr
+                  th(colspan='6', style='text-align:center; padding:0px; background-color: #FFEC8B; ')
+                    | Lista das Melhores Ofertas de Compra por Exchange
+                    // Menores Ofertas de Venda
+                tr.text-center
+                  th.text-center País
+                  th.text-center Exchange
+                  th.text-center BTC 
+                  th.text-center BRL 
+                  th.text-center USD 
+                  th.text-center Desativar
+              tbody
+                tr.text-center.seleciona-exchange-vender(ng-repeat='(key, value) in ordemExchangesCompra', ng-click='selectExchangeCompra(value)', ng-class="{'seleciona-exchange-vender': ! checkedAtivadoOfertaCompra[value.codCompra]}" style="cursor: crosshair;")
+                  td.CellWithComment(ng-class="{'valor-exchange-selecionado': checkedAtivadoOfertaCompra[value.codCompra]}") {{value.siglaPais}}
+                    span.CellComment {{value.pais}}
+                  td
+                    a.tabelaLinkExchange(href='{{value.linkExchange}}', target='_blank', ng-class="{'texto-exchange-selecionado': checkedAtivadoOfertaCompra[value.codCompra]}")
+                      | {{value.exchange}} 
+                    span.glyphicon.glyphicon-bullhorn(style='color:#8B0000', aria-hidden='true', ng-if='value.iconRanking')
+                  td.text-right(ng-class="{'valor-exchange-selecionado': checkedAtivadoOfertaCompra[value.codCompra]}") ฿ {{value.maiorCompraBTC}}
+                  td.text-right(ng-class="{'valor-exchange-selecionado': checkedAtivadoOfertaCompra[value.codCompra]}") {{value.maiorCompraValor | currency}}
+                  td.text-right(ng-class="{'valor-exchange-selecionado': checkedAtivadoOfertaCompra[value.codCompra]}") {{value.maiorCompraValorUSD | currency : "$"}}
+                  td(style="padding: 0px;")
+                    input(type='checkbox', name='{{value.codCompra}}', id="{{value.codCompra}}", ng-model='checkedAtivadoOfertaCompra[value.codCompra]')
+  footer.footer.navbar-inverse.navbar-fixed-bottom(style="padding:10px !important;")
+    .container
+      ul.nav.navbar-nav.navbar-left
+        li
+          a
+            div(style='font-size: 18px;')
+              strong
+              span(style='color:#fff')
+                |  {{exchangeVenda}} {{exchangeCompra}}
+      ul.nav.navbar-nav.navbar-right
+        li
+          a
+            div(style='font-size: 18px;')
+        li
+          a
+            div(style='font-size: 18px;')
+              strong Compra: 
+              span(style='color:#fff')
+                |  {{selectValorVenda | currency}}
+        li
+          a
+            div(style='font-size: 18px;')
+              strong Venda: 
+              span(style='color:#fff')
+                |  {{selectValorCompra | currency}}
+        li
+          a
+            div(style='font-size: 18px;')
+              strong Margem: 
+              span(style='color:#fff')
+                |  {{selectValorCompra - selectValorVenda | currency}}

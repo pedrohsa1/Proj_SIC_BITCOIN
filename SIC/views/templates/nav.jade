@@ -1,0 +1,25 @@
+// Navigation
+body#page-top.index
+  nav#mainNav.navbar.navbar-default.navbar-custom.navbar-fixed-top.affix
+    .container
+      // Brand and toggle get grouped for better mobile display
+      .navbar-header.page-scroll
+        button.navbar-toggle(type='button', data-toggle='collapse', data-target='#bs-example-navbar-collapse-1')
+          span.sr-only Toggle navigation
+          |  Menu 
+          i.fa.fa-bars
+        a.navbar-brand.page-scroll(href='/')  SIC Bitcoin
+      // Collect the nav links, forms, and other content for toggling
+      #bs-example-navbar-collapse-1.collapse.navbar-collapse
+        ul.nav.navbar-nav.navbar-right
+          li.hidden
+            a(href='#page-top')
+          li
+            a.page-scroll(href='/investidor') Investir
+          li
+            a.page-scroll(href='#services') Serviços
+          li
+            a.page-scroll(href='/dicas') Instruções
+          li
+            a.page-scroll(href='/estatisticas') Estatísticas
+      // /.navbar-collapse

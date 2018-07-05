@@ -1,0 +1,37 @@
+extends templates/default
+
+block content
+    .container-fluid.custab(style="margin-right:2em; margin-left:2em; margin-top: 7em; background-color:#fff; padding:3em;")
+      .row
+        .col-md-12
+          div(class=['ui', 'container', 'grid', 'stackable'])
+            div(class=['sixteen', 'wide', 'column'])
+
+              h2(class['ui','header', 'blue', 'dividing'])= investidores[0].nome
+              table(class=['ui', 'table', 'celled'] id='tbl-investidor')
+                thead
+                  tr
+                    th= 'Id'
+                    th= 'Nome'
+                    th= 'Endereco'
+                    th= 'Telefone'
+                    th=  'Email'
+                    th= 'Qtd. Bitcoin'
+                    th= 'Exhange Investido'
+                    th= 'Ações'
+                tbody
+                  each investidores in investidor
+                    tr
+                      td(id='id-investidor')= investidor.id
+                      td= investidor.nome
+                      td= investidor.endereco
+                      td= investidor.telefone
+                      td= investidor.email
+                      td= investidor.qtd_bitcoin
+                      td= investidor.exchange_invest
+                      td
+                        a(class==['ui button basic icon'] href='#' data-tooltip='Excluir Registro' data-position='top center' data-inverted='' id = 'btn-apagar')
+                          i(class=['trash icon'])
+                        a(class==['ui button basic icon'] href='http://localhost:3000/modificarInvestidor/'+investidores.id data-tooltip='Modificar Registro' data-position='top center' data-inverted='' )
+                          i(class=['trash icon'])
+  script(src='/javascripts/investidor.js')
