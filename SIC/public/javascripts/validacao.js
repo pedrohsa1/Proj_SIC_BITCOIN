@@ -30,6 +30,16 @@ $(function(){
 			]
 		},
 
+		email:{
+			identifier : 'email',
+			rules : [
+				{
+					type:'empty',
+					prompt: 'Por favor digite um email valido'
+				}
+			]
+		},
+
 		qtd_bitcoin:{
 			identifier : 'qtd_bitcoin',
 			rules : [
@@ -44,7 +54,15 @@ $(function(){
 			]
 		},
 
-
+		exchange_invest:{
+			identifier : 'exchange_invest',
+			rules : [
+				{
+					type:'empty',
+					prompt: 'Por favor digite um Exchange Investimento'
+				}
+			]
+		},
 
 	});
 });

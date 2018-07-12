@@ -17,12 +17,14 @@ module.exports = {
 		var investidores = null;
 
 		db.query('SELECT * FROM investidor', function(err,rows, fields){
-			if(err) throw err;
-			console.log(rows);
+			if(err){
+                res.send(err);
+                return;
+			}
+			//console.log(rows);
 			investidores = rows;
-			db.end();
 
-			res.render('investidor', {investidores : investidores});
+			res.render('investidor', {listaInvestidores : investidores});
 		});
 	},
 
@@ -41,9 +43,8 @@ module.exports = {
 	*/
 
 	getNovoInvestidor : function(req,res,next){
-		res.render('novo')
+		res.render('novo');
 	},
-
 	postNovoInvestidor : function(req,res,next){
 		var investidor = {
 			nome : req.body.nome,
@@ -53,14 +54,17 @@ module.exports = {
 			qtd_bitcoin : req.body.qtd_bitcoin,
 			exchange_invest : req.body.exchange_invest,
 		};
+		console.log(investidor);
 
 		var config = require('.././database/config');
-
 		var db = mysql.createConnection(config);
 		db.connect();
 
 		db.query('INSERT INTO investidor SET ?', investidor, function(err, rows, fields){
-
+			if(err){
+                console.log(err)
+			}
+			console.log('Investidor Inserido com sucesso!');
 			db.end();
 		});
 		res.render('novo', {info: 'Investidor inserido corretamente!'});
@@ -74,7 +78,7 @@ module.exports = {
 		db.connect();
 
 		var resposta = {res: true};
-		db.query('DELETE FROM investidores WHERE  id = ?', id, function(err, rows, fields){
+		db.query('DELETE FROM investidor WHERE  id = ?', id, function(err, rows, fields){
 			if(err){
 				throw err;
 				resposta = {res: false}
@@ -90,23 +94,22 @@ module.exports = {
 	getModificarInvestidor : function(req, res, next){
 		var id = req.params.id;
 		var config = require('.././database/config');
+		console.log(id);
 
 		var db = mysql.createConnection(config);
 		db.connect();
 
-		var investidores = null;
+		var investidor = null;
 
 		db.query('SELECT * FROM  investidores WHERE id = ?', id, function(err, rows, fields){
-			investidores = rows;
+			investidor = rows;
 			db.end()
 
-			ren.render('modificar', {investidores : investidores});
-
-
+			ren.render('modificar', {investidorSelecionado : investidor});
 		});
 	},
 
-	postModificarProduto : function (req,res, next){
+	postModificarInvestidor : function (req,res, next){
 		var investidor = {
 			nome : req.body.nome,
 			endereco : req.body.endereco,

@@ -1,8 +1,9 @@
 var config = {
 	host: 'localhost',
 	user: 'root',
-	password: 'ph940927',
-	database: 'sic'
+	password: 'pedrohenriquemysql',
+	database: 'sic',
+	insecureAuth : true
 };
 
 module.exports = config;

@@ -1,12 +1,8 @@
 $(function(){
-	$('#tbl-investidor #btn-apagar').click(function(event) {
-		e.preventDefault();
-		alert();
-		var elemnento = $(this);
+	$('#tbl-investidor tbody td #btn-apagar').click(function(event) {
+		var elemento = $(this);
 		var id = elemento.parent().parent().find('#id-investidor').text();
-
 		var confirmar = confirm('Deseja apagar o investidor?');
-
 		if(confirmar){
 			$.ajax({
 				url:"http://localhost:3000/apagarInvestidor",
@@ -20,6 +16,5 @@ $(function(){
 				}
 			});
 		}
-
 	});
 });

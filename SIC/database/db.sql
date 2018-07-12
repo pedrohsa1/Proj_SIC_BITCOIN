@@ -23,9 +23,10 @@ exchange_invest varchar(255) not null
 -- inserir investidores teste
 
 insert into investidor (nome, endereco, telefone, email, qtd_bitcoin, exchange_invest) values ('Pedro Henrique S Arcajo', 'Res Canadá', '62 91234-5678', 'p_henrique94@hotmail.com',112, 'Foxbit');
-insert into investidor (nome, endereco, telefone, email, qtd_bitcoin, exchange_invest) values ('Yago Cesar', 'Res Canadá', '61 91234-5678', 'yago@hotmail.com',112, 'Foxbit');
-insert into investidor (nome, endereco, telefone, email, qtd_bitcoin, exchange_invest) values ('Luis Felipe', 'Res Canadá', '63 91234-5678', 'uis@hotmail.com',112, 'mercadobitcoin');
-insert into investidor (nome, endereco, telefone, email, qtd_bitcoin, exchange_invest) values ('Pedro Arcajo', 'Res Canadá', '64 91234-5678', 'pedroarcanjo@hotmail.com',112, 'mercadobitcoin');
+insert into investidor (nome, endereco, telefone, email, qtd_bitcoin, exchange_invest) values ('Yago Cesar', 'Res Canadá', '61 91234-5678', 'yago@hotmail.com',11, 'Foxbit');
+insert into investidor (nome, endereco, telefone, email, qtd_bitcoin, exchange_invest) values ('Luis Felipe', 'Res Canadá', '63 91234-5678', 'uis@hotmail.com',43, 'mercadobitcoin');
+insert into investidor (nome, endereco, telefone, email, qtd_bitcoin, exchange_invest) values ('Pedro Arcajo', 'Res Canadá', '64 91234-5678', 'pedroarcanjo@hotmail.com',27, 'mercadobitcoin');
+insert into investidor (nome, endereco, telefone, email, qtd_bitcoin, exchange_invest) values ('Teste', 'Teste123', '64 91234-5678', 'teste123@hotmail.com',1012, 'binance');
 
 -- Testando registros
 

@@ -7,33 +7,34 @@ block content
           div(class=['ui', 'container', 'grid', 'stackable'])
             div(class=['ten', 'wide', 'column'])
 
-              h2(class['ui','header', 'blue', 'dividing'])= 'Modificar Investidor'
+              h2(class=['ui','header', 'blue', 'dividing'])= 'Novo Investidor'
 
               div(class='form-novoproduto')
-              	form(class=['ui', 'form'] action='/novoInvestidor' method='post')
-              		div(class=['ui', 'field'])
-              			label(form='nome')= 'Nome do Investidor'
-              			input(type= 'text', name='nome' placeholder='nome' value = investidores[0].nome)
-              		div(class['ui', 'two', 'fields'])
-              			div(class=['ui', 'fields'])
-              				label(for='nome')= "Endereco"
-              				input(type='text' name='endereco' placeholder='Endereco' value = investidores[0].endereco)
-              			div(class=['ui', 'fields'])
-              				label(for='nome')= "Telefone"
-              				input(type='text' name='telefone' placeholder='Telefone'value = investidores[0].telefone)
-              		div(class['ui', 'two', 'fields'])
-              			div(class=['ui', 'fields'])
-              				label(for='qtd_bitcoin')= "Qtd. Bitcoin"
-              				input(type='text' name='qtd_bitcoin' placeholder='Qtd Bitcoin
-              				' value = investidores[0].qtd_bitcoin)
-              			div(class=['ui', 'fields'])
-              				label(for='exchange_invest')= "Exchange Investimento"
-              				input(type='text' name='exchange_invest' placeholder='Exchange' value = investidores[0].exchange_invest)
-              		button(class=['ui', 'button','basic','black'])= 'Inserir Investidor'
-              		div(class=['ui', 'message', 'error'])
+                form(class=['ui', 'form'] action='http://localhost:3000/novoInvestidor' method='post')
+                  div(class=['ui', 'field'])
+                    label(form='nome')= 'Nome do Investidor'
+                    input(type= 'text', name='nome' placeholder='nome')
+                  div(class=['ui', 'field'])
+                    label(form='endereco')= 'Endereço'
+                    input(type= 'text', name='endereco' placeholder='Endereco')
+                  div(class=['ui', 'field'])
+                    label(form='telefone')= 'Telefone'
+                    input(type= 'text', name='telefone' placeholder='Telefone')
+                  div(class=['ui', 'field'])
+                    label(form='email')= 'Email'
+                    input(type= 'text', name='email' placeholder='Email')
+                  div(class=['ui', 'field'])
+                    label(form='qtd_bitcoin')= 'Qtd. Bitcoin'
+                    input(type= 'text', name='qtd_bitcoin' placeholder='Qtd. Bitcoin')
+                  div(class=['ui', 'field'])
+                    label(form='exchange_invest')= 'Exchange Investimento'
+                    input(type= 'text', name='exchange_invest' placeholder='Exchange Investimento')
+                  div
+                  button(class=['ui', 'button','basic','black'])= 'Inserir Investidor'
+                  div(class=['ui', 'message', 'error'])
               if info != undefined
-              	div(class=['ui', 'message', 'success']) 
-              		i(class=['close','icon'])
-              		div(class='header')= ' Produto Registrado '
-              		p= info
-          script(src='/javascripts/validacion.js')
+                div(class=['ui', 'message', 'success']) 
+                  i(class=['close','icon'])
+                  div(class='header')= ' Produto Registrado '
+                  p= info
+          script(src='/javascripts/validacao.js')
