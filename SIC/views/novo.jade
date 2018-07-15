@@ -30,7 +30,8 @@ block content
                     label(form='exchange_invest')= 'Exchange Investimento'
                     input(type= 'text', name='exchange_invest' placeholder='Exchange Investimento')
                   div
-                  button(class=['ui', 'button','basic','black'])= 'Inserir Investidor'
+                  button(class=['ui', 'button','green','button'])= 'Inserir Investidor'
+                  a(class=['ui', 'button','red','button'] href="http://localhost:3000/investidor")= 'Cancelar'
                   div(class=['ui', 'message', 'error'])
               if info != undefined
                 div(class=['ui', 'message', 'success']) 

@@ -21,8 +21,8 @@ router.post('/novoInvestidor', controllers.ServicesController.postNovoInvestidor
 
 router.post('/apagarInvestidor', controllers.ServicesController.apagarInvestidor);
 
-router.post('/modificarInvestidor/:id', controllers.ServicesController.postModificarInvestidor);
+router.get('/modificar/:id', controllers.ServicesController.getModificarInvestidor);
 
-router.post('/modificar', controllers.ServicesController.postModificarProduto);
+router.post('/modificarInvestidor', controllers.ServicesController.postModificarInvestidor);
 
 module.exports = router;

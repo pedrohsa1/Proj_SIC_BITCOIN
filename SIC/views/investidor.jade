@@ -30,9 +30,9 @@ block content
                       td= investidor.qtd_bitcoin
                       td= investidor.exchange_invest
                       td
-                        a(class=['ui button basic icon'] href='#' data-tooltip='Excluir Registro' data-position='top center' data-inverted='' id = 'btn-apagar')
+                        a(class=['ui button red icon'] href='#' data-tooltip='Excluir Registro' data-position='top center' data-inverted='' id = 'btn-apagar')
                           i(class=['trash icon'])
-                        a(class=['ui button basic icon'] href='http://localhost:3000/modificarInvestidor/' + investidor.id data-tooltip='Modificar Registro' data-position='top center' data-inverted='' )
-                          i(class=['trash icon'])
+                        a(class=['ui button blue icon'] href='http://localhost:3000/modificar/' + investidor.id data-tooltip='Modificar Registro' data-position='top center' data-inverted='' )
+                          i(class=['pencil alternate icon'])
               a(class=['ui green button'] href="http://localhost:3000/novo") Novo Investidor
     script(src='/javascripts/investidor.js')

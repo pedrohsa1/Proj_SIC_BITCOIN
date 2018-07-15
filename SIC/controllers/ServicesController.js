@@ -93,19 +93,19 @@ module.exports = {
 
 	getModificarInvestidor : function(req, res, next){
 		var id = req.params.id;
-		var config = require('.././database/config');
 		console.log(id);
 
+		var config = require('.././database/config');
 		var db = mysql.createConnection(config);
 		db.connect();
 
 		var investidor = null;
 
-		db.query('SELECT * FROM  investidores WHERE id = ?', id, function(err, rows, fields){
+		db.query('SELECT * FROM  investidor WHERE id = ?', id, function(err, rows, fields){
 			investidor = rows;
 			db.end()
 
-			ren.render('modificar', {investidorSelecionado : investidor});
+			res.render('modificar', {investidorSelecionado : investidor});
 		});
 	},
 
@@ -116,18 +116,21 @@ module.exports = {
 			telefone : req.body.telefone,
 			email : req.body.email,
 			qtd_bitcoin : req.body.qtd_bitcoin,
-			exchange_invest : req.body.exchange_invest,
+			exchange_invest : req.body.exchange_invest
 		};
+		console.log(investidor);
 
 		var config = require('.././database/config');
 
 		var db = mysql.createConnection(config);
 		db.connect();
+		console.log(req.body.id);
 
-		db.query('UPDATE investidores SET ? WHERE ?', [investidor, {id: req.body.id}], function(err, rows, fields){
+		db.query('UPDATE investidor SET ? WHERE ?', [investidor, {id: req.body.id}], function(err, rows, fields){
+			if(err) throw err;
+			console.log('ok');
 			db.end();
 		});
-
-		res.redirect('/investidor')
+		res.redirect('/investidor');
 	}
 }
