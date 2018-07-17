@@ -9,7 +9,7 @@ var bitcoinApi = require('./api/bitcoin');
 var helmet = require('helmet');
 
 var app = express();
-
+/*teste*/
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 app.use(favicon());
